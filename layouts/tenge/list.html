@@ -1,0 +1,25 @@
+{{- /* /tenge/ — the app landing. Hero from front matter, the rest is Markdown. */ -}}
+{{ define "style" }}
+    <link rel="stylesheet" href="/tenge/tenge.css"/>
+{{- end }}
+
+{{ define "main" -}}
+{{ partial "tenge-nav.html" . }}
+<main class="app">
+    <header class="hero">
+        <img src="{{ .Params.logo }}" alt="" width="128" height="128"/>
+        <div>
+            <h1>{{ .Title }}</h1>
+            <p class="tagline">{{ .Params.tagline }}</p>
+            {{- with .Params.badge }}
+            <span class="badge">{{ . }}</span>
+            {{- end }}
+        </div>
+    </header>
+
+{{ .Content }}
+</main>
+<footer>
+    <p>{{ range $i, $p := slice (site.GetPage "/tenge/privacy") (site.GetPage "/tenge/terms") }}<a href="{{ $p.RelPermalink }}">{{ $p.LinkTitle }}</a> · {{ end }}<a href="/">Oh, just another!</a></p>
+</footer>
+{{- end }}

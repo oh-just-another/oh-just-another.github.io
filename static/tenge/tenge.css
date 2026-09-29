@@ -1,0 +1,235 @@
+/* Tenge pages (/tenge/, privacy, terms). Same palette and mono type as the
+   organization landing; body text keeps normal case so longer passages stay
+   readable. */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+:root {
+    --ink: #111;
+    --muted: #555;
+    --paper: #fff;
+    --accent: #2f6fe0;
+    --rule: #e2e2e2;
+    --mono: ui-monospace, "SF Mono", "Cascadia Mono", "Roboto Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ink: #eaeaea;
+        --muted: #a8a8a8;
+        --paper: #111;
+        --accent: #7aa8ff;
+        --rule: #2a2a2a;
+    }
+}
+
+body {
+    min-height: 100svh;
+    padding: 60px 80px;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: var(--mono);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+}
+
+.nav {
+    font-size: 18px;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+
+.nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.nav a {
+    color: inherit;
+}
+
+.nav a[aria-current="page"] {
+    text-decoration: none;
+    font-weight: 700;
+}
+
+main {
+    max-width: 72ch;
+    margin-top: 56px;
+}
+
+h1 {
+    font-size: max(24px, 2.2vw);
+    line-height: 1.2;
+    text-transform: uppercase;
+    overflow-wrap: break-word;
+}
+
+.meta {
+    margin-top: .5rem;
+    color: var(--muted);
+}
+
+h2 {
+    margin-top: 2.25rem;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: .2px;
+}
+
+main p, main ul {
+    margin-top: .9rem;
+}
+
+main ul {
+    padding-left: 1.4rem;
+}
+
+main li + li {
+    margin-top: .4rem;
+}
+
+.lead {
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+
+footer {
+    max-width: 72ch;
+    margin-top: 56px;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    text-transform: uppercase;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+/* --- App landing (/tenge/) --- */
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.hero img {
+    width: 128px;
+    height: 128px;
+    flex: none;
+}
+
+.hero h1 {
+    font-size: max(40px, 4vw);
+    line-height: 1;
+}
+
+.tagline {
+    margin-top: .6rem;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .35rem .8rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 14px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.hero + .lead {
+    margin-top: 2rem;
+}
+
+main.app,
+main.app + footer {
+    max-width: 80ch;
+}
+
+.gestures {
+    list-style: none;
+    padding-left: 0 !important;
+}
+
+.gestures li {
+    padding-left: 1.4rem;
+    text-indent: -1.4rem;
+}
+
+.gestures li::before {
+    content: "→ ";
+    color: var(--accent);
+}
+
+dl {
+    margin-top: .9rem;
+}
+
+dt {
+    margin-top: 1.1rem;
+    font-weight: 700;
+}
+
+dd {
+    margin: .3rem 0 0;
+}
+
+footer a {
+    color: inherit;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 479px) {
+    body {
+        padding: 20px;
+        font-size: 15px;
+    }
+
+    main {
+        margin-top: 40px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .hero img {
+        width: 96px;
+        height: 96px;
+    }
+}

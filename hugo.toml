@@ -1,0 +1,51 @@
+baseURL = "https://ohjustanother.site/"
+languageCode = "en"
+title = "Oh, just another!"
+disableHugoGeneratorInject = true
+
+# A handful of hand-made pages: no taxonomies, no feeds. The sitemap stays.
+disableKinds = ["taxonomy", "term", "RSS"]
+
+# The organization landing (/) — header links.
+[menus]
+  [[menus.main]]
+    name = "/diagram"
+    url = "/diagram/"
+    weight = 10
+  [[menus.main]]
+    name = "/tenge"
+    url = "/tenge/"
+    weight = 20
+  [[menus.main]]
+    name = "/github"
+    url = "https://github.com/oh-just-another"
+    weight = 30
+
+  # Tenge pages (/tenge/, privacy, terms) — the breadcrumb-like header.
+  [[menus.tenge]]
+    name = "/oh-just-another"
+    url = "/"
+    weight = 10
+  [[menus.tenge]]
+    name = "/tenge"
+    pageRef = "/tenge"
+    weight = 20
+  [[menus.tenge]]
+    name = "/privacy"
+    pageRef = "/tenge/privacy"
+    weight = 30
+  [[menus.tenge]]
+    name = "/terms"
+    pageRef = "/tenge/terms"
+    weight = 40
+
+[markup.goldmark]
+  # Own content only; the landing copy needs a <span class="accent">.
+  [markup.goldmark.renderer]
+    unsafe = true
+  # {.lead}, {.gestures} after a block set its class.
+  [markup.goldmark.parser.attribute]
+    block = true
+
+[sitemap]
+  changeFreq = "monthly"

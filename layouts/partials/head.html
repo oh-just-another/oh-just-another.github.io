@@ -1,0 +1,44 @@
+{{- /* Shared <head>. Per page, from front matter:
+       htmlTitle   — <title> (falls back to .Title)
+       description — meta description (and og/twitter unless set separately)
+       og.*        — og/twitter card: title, description, image, card
+       icons       — "tenge" for the app's icon set, else the organization's */ -}}
+{{- $title := .Params.htmlTitle | default .Title -}}
+{{- $description := .Params.description -}}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{{ $title }}</title>
+    {{- with $description }}
+    <meta name="description" content="{{ . }}"/>
+    {{- end }}
+    <link rel="canonical" href="{{ .Permalink }}"/>
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"/>
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)"/>
+{{- with .Params.og }}
+
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ $.Permalink }}"/>
+    <meta property="og:title" content="{{ .title | default $title }}"/>
+    <meta property="og:description" content="{{ .description | default $description }}"/>
+    {{- with .image }}
+    <meta property="og:image" content="{{ . | absURL }}"/>
+    {{- end }}
+    <meta name="twitter:card" content="{{ .card | default "summary" }}"/>
+    {{- if eq .card "summary_large_image" }}
+    <meta name="twitter:title" content="{{ .title | default $title }}"/>
+    <meta name="twitter:description" content="{{ .description | default $description }}"/>
+    {{- with .image }}
+    <meta name="twitter:image" content="{{ . | absURL }}"/>
+    {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- if eq .Params.icons "tenge" }}
+    <link rel="icon" href="/tenge/logo.svg" type="image/svg+xml"/>
+    <link rel="apple-touch-icon" href="/tenge/apple-touch-icon.png"/>
+{{- else }}
+    <link rel="icon" href="/favicon.ico" sizes="32x32"/>
+    <link rel="icon" href="/icon.svg" type="image/svg+xml"/>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="manifest" href="/site.webmanifest"/>
+{{- end }}

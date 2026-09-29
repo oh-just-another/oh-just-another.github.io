@@ -1,0 +1,27 @@
+{{ define "style" }}
+    {{- /* Inline, as before: one request for the whole landing. */}}
+    {{- with resources.Get "css/home.css" }}
+    <style>
+{{ .Content | safeCSS }}
+    </style>
+    {{- end }}
+{{- end }}
+
+{{ define "main" -}}
+<header class="header">
+    {{ partial "org-logo.html" . }}
+    <nav class="nav" aria-label="Main">
+        <ul role="list">
+            {{- range site.Menus.main }}
+            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+            {{- end }}
+        </ul>
+    </nav>
+</header>
+<main class="intro">
+{{ .Content }}
+</main>
+<footer class="footer">
+    <p>{{ .Params.footer | safeHTML }}</p>
+</footer>
+{{- end }}

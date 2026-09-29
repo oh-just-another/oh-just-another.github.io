@@ -1,0 +1,19 @@
+{{- /* /tenge/privacy/, /tenge/terms/ — legal documents. */ -}}
+{{ define "style" }}
+    <link rel="stylesheet" href="/tenge/tenge.css"/>
+{{- end }}
+
+{{ define "main" -}}
+{{ partial "tenge-nav.html" . }}
+<main>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.effective }}
+    <p class="meta">Effective date: {{ time.Format "January 2, 2006" . }}</p>
+    {{- end }}
+
+{{ .Content }}
+</main>
+<footer>
+    <p><a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a> · <a href="/">Oh, just another!</a></p>
+</footer>
+{{- end }}
