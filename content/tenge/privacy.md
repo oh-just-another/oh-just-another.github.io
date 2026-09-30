@@ -14,6 +14,9 @@ stays on your device.
 Tenge is a currency converter for iPhone made by Oh, just another! — a team of one
 person. In this policy, “I” and “me” refer to that person.
 
+This policy covers the Tenge app. The website, including these pages, has its own
+[Website Privacy Policy](/privacy/).
+
 ## Data I collect
 
 None. Tenge does not collect, store, sell, or share any personal information.

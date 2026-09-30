@@ -7,7 +7,7 @@ og:
   description: "A team with a headcount of exactly one, building open-source diagramming tools."
   image: "/og-image.png"
   card: "summary_large_image"
-footer: "team size:&nbsp;1 · meetings:&nbsp;0 · replies:&nbsp;eventually"
+footer: "team size:&nbsp;1 · meetings:&nbsp;0 · replies:&nbsp;eventually · <a href=\"/privacy/\">privacy</a>"
 ---
 
 <span class="accent">Oh, just another!</span> is a team with a total

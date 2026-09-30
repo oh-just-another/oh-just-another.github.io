@@ -42,3 +42,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
     <link rel="manifest" href="/site.webmanifest"/>
 {{- end }}
+
+    {{- /* Site analytics (GA4 + consent card): one script for all pages of the
+           domain, including the /diagram/ docs deployed from another repo. */}}
+    <script src="/analytics.js" defer></script>

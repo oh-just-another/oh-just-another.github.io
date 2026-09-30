@@ -1,0 +1,27 @@
+{{- /* Site-level pages (/privacy/): the organization's nav, the legal-page
+       look of the Tenge documents. */ -}}
+{{ define "style" }}
+    <link rel="stylesheet" href="/tenge/tenge.css"/>
+{{- end }}
+
+{{ define "main" -}}
+<nav class="nav" aria-label="Main">
+    <ul role="list">
+        <li><a href="/">/oh-just-another</a></li>
+        {{- range site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+    </ul>
+</nav>
+<main>
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.effective }}
+    <p class="meta">Effective date: {{ time.Format "January 2, 2006" . }}</p>
+    {{- end }}
+
+{{ .Content }}
+</main>
+<footer>
+    <p><a href="/">Oh, just another!</a></p>
+</footer>
+{{- end }}
