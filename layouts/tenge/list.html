@@ -17,7 +17,11 @@
         </div>
     </header>
 
+{{ partial "tenge-screens.html" . }}
+
+    <div class="copy">
 {{ .Content }}
+    </div>
 </main>
 <footer>
     <p>{{ range $i, $p := slice (site.GetPage "/tenge/privacy") (site.GetPage "/tenge/terms") }}<a href="{{ $p.RelPermalink }}">{{ $p.LinkTitle }}</a> · {{ end }}<a href="/">Oh, just another!</a></p>

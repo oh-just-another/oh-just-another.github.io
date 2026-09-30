@@ -1,0 +1,19 @@
+{{- /* App screenshots from the page's `screens` front matter (file, caption,
+       alt): static/tenge/screens/<file>-light|dark.webp, the dark set following
+       the reader's color scheme. A grid of 4, 2 or 1 per row, whatever the
+       column fits (tenge.css, container queries). */ -}}
+{{- with .Params.screens }}
+<aside class="shots" aria-label="Screenshots">
+    <div class="shots-grid">
+    {{- range . }}
+        <figure>
+            <picture>
+                <source srcset="/tenge/screens/{{ .file }}-dark.webp" media="(prefers-color-scheme: dark)"/>
+                <img src="/tenge/screens/{{ .file }}-light.webp" alt="{{ .alt }}" width="480" height="1043" decoding="async"/>
+            </picture>
+            <figcaption>{{ .caption }}</figcaption>
+        </figure>
+    {{- end }}
+    </div>
+</aside>
+{{- end }}

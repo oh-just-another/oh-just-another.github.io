@@ -165,7 +165,7 @@ footer p {
     white-space: nowrap;
 }
 
-.hero + .lead {
+.copy > .lead:first-child {
     margin-top: 2rem;
 }
 
@@ -231,5 +231,77 @@ footer a {
     .hero img {
         width: 96px;
         height: 96px;
+    }
+}
+
+/* --- Screenshots: 4, 2 or 1 per row, by the width of their column --- */
+
+.shots {
+    margin-top: 2rem;
+    container: shots / inline-size;
+}
+
+.shots-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 280px);
+    gap: 24px 16px;
+}
+
+/* Two per row as soon as two fit, four as soon as four do — never 3 + 1. */
+@container shots (min-width: 316px) {
+    .shots-grid {
+        grid-template-columns: repeat(2, minmax(0, 280px));
+    }
+}
+
+@container shots (min-width: 768px) {
+    .shots-grid {
+        grid-template-columns: repeat(4, minmax(0, 280px));
+    }
+}
+
+.shots figure {
+    margin: 0;
+}
+
+.shots img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: 12% / 5.5%;
+}
+
+.shots figcaption {
+    margin-top: .6rem;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.35;
+    text-align: center;
+}
+
+/* Wide screens: text on the left, screenshots in a second column. Below
+   this width the second column can't hold even one screen, and the
+   screenshots move into the text column, right under the header. */
+@media (min-width: 1200px) {
+    main.app {
+        display: grid;
+        grid-template-columns: minmax(0, 76ch) minmax(0, 1fr);
+        grid-template-rows: auto 1fr;
+        column-gap: 72px;
+        align-items: start;
+        max-width: none;
+    }
+
+    main.app > .hero,
+    main.app > .copy {
+        grid-column: 1;
+    }
+
+    /* The screenshots are content: they start under the header, level
+       with the lead paragraph (same 2rem top margin). */
+    main.app > .shots {
+        grid-column: 2;
+        grid-row: 2;
     }
 }
