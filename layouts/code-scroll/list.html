@@ -1,0 +1,38 @@
+{{- /* /code-scroll/ — the plugin page: the organization's nav, a hero from
+       front matter (the logo follows the reader's color scheme), then Markdown. */ -}}
+{{ define "style" }}
+    <link rel="stylesheet" href="/tenge/tenge.css"/>
+{{- end }}
+
+{{ define "main" -}}
+<nav class="nav" aria-label="Main">
+    <ul role="list">
+        <li><a href="/">/oh-just-another</a></li>
+        {{- range site.Menus.main }}
+        <li><a href="{{ .URL }}"{{ if eq .URL $.RelPermalink }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{- end }}
+    </ul>
+</nav>
+<main class="app">
+    <header class="hero">
+        <picture>
+            <source srcset="{{ .Params.logoDark }}" media="(prefers-color-scheme: dark)"/>
+            <img src="{{ .Params.logo }}" alt="" width="128" height="128"/>
+        </picture>
+        <div>
+            <h1>{{ .Title }}</h1>
+            <p class="tagline">{{ .Params.tagline }}</p>
+            {{- with .Params.badge }}
+            <span class="badge">{{ . }}</span>
+            {{- end }}
+        </div>
+    </header>
+
+    <div class="copy">
+{{ .Content }}
+    </div>
+</main>
+<footer>
+    <p><a href="https://github.com/oh-just-another/code-scroll">GitHub</a> · <a href="/">Oh, just another!</a></p>
+</footer>
+{{- end }}

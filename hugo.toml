@@ -17,6 +17,10 @@ disableKinds = ["taxonomy", "term", "RSS"]
     url = "/tenge/"
     weight = 20
   [[menus.main]]
+    name = "/code-scroll"
+    url = "/code-scroll/"
+    weight = 25
+  [[menus.main]]
     name = "/github"
     url = "https://github.com/oh-just-another"
     weight = 30
