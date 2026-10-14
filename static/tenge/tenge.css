@@ -165,6 +165,17 @@ footer p {
     white-space: nowrap;
 }
 
+/* A badge with badgeUrl in front matter is a link: filled, so it reads as a button. */
+a.badge {
+    background: var(--accent);
+    color: var(--paper);
+    text-decoration: none;
+}
+
+a.badge:hover {
+    background: color-mix(in srgb, var(--accent) 85%, var(--ink));
+}
+
 .copy > .lead:first-child {
     margin-top: 2rem;
 }

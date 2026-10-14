@@ -12,7 +12,11 @@
             <h1>{{ .Title }}</h1>
             <p class="tagline">{{ .Params.tagline }}</p>
             {{- with .Params.badge }}
+            {{- with $.Params.badgeUrl }}
+            <a class="badge" href="{{ . }}">{{ $.Params.badge }}</a>
+            {{- else }}
             <span class="badge">{{ . }}</span>
+            {{- end }}
             {{- end }}
         </div>
     </header>

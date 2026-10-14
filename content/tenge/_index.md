@@ -10,7 +10,8 @@ og:
 icons: "tenge"
 logo: "/tenge/logo.svg"
 tagline: "Oh, just another currency converter"
-badge: "Coming soon to the App Store"
+badge: "Download on the App Store"
+badgeUrl: "https://apps.apple.com/us/app/tenge-currency-converter/id6788115222"
 screens:
   - file: "01-table"
     caption: "A table, not a calculator"
