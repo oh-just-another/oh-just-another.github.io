@@ -10,7 +10,8 @@ og:
 logo: "/code-scroll/logo.svg"
 logoDark: "/code-scroll/logo-dark.svg"
 tagline: "Oh, just another code minimap"
-badge: "Coming soon to JetBrains Marketplace"
+badge: "Get it on JetBrains Marketplace"
+badgeUrl: "https://plugins.jetbrains.com/plugin/35118-code-scroll"
 ---
 
 Code Scroll shows the whole file in your theme's colors next to the code, with
@@ -24,9 +25,10 @@ their own. It works in IntelliJ IDEA, WebStorm, Rider, Android Studio and other
 JetBrains IDEs from version 2026.2.
 
 Code Scroll is free and open source under the MIT license. It collects no data and
-never goes online. The source and build instructions are on
-[GitHub](https://github.com/oh-just-another/code-scroll); until the plugin reaches
-JetBrains Marketplace, that's where to get it.
+never goes online. Install it from **Settings | Plugins | Marketplace** in your IDE
+or from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/35118-code-scroll).
+The source and build instructions are on
+[GitHub](https://github.com/oh-just-another/code-scroll).
 
 Bug reports go to [GitHub issues](https://github.com/oh-just-another/code-scroll/issues)
 or [rustam@n69.in](mailto:rustam@n69.in), which is to say, straight to the entire staff.
